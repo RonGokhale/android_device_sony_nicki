@@ -103,3 +103,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/c1905/custombootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/c1905/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/sony/c1905/recovery/graphics.c
 
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := C1904,C1905,nicki

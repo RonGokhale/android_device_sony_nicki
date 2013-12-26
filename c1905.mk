@@ -13,14 +13,23 @@
 # limitations under the License.
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Include proprietary files
 $(call inherit-product, vendor/sony/c1905/c1905-vendor.mk)
+
+#Sony-common Resources
 $(call inherit-product, device/sony/common/resources.mk)
+
+#Qualcomm-common Files
 $(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
+#GPS
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
+#Call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+#Call hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-hwui-memory.mk)
 
 # Permissions
@@ -43,31 +52,44 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
 
+# NFC permission
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
+
 # Platform specific overlays
 DEVICE_PACKAGE_OVERLAYS := device/sony/c1905/overlay
 
+# We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+#Init Device specific files
 PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/root/init.qcom.rc:root/init.qcom.rc \
     device/sony/c1905/rootdir/root/fstab.qcom:root/fstab.qcom \
     device/sony/c1905/rootdir/root/ueventd.qcom.rc:root/ueventd.qcom.rc \
     device/sony/c1905/rootdir/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    device/sony/c1905/rootdir/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    device/sony/c1905/rootdir/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc
 
+#BT
 PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/system/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/sony/c1905/rootdir/system/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+    device/sony/c1905/rootdir/system/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
 
+#Media
 PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/sony/c1905/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/sony/c1905/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/sony/c1905/rootdir/system/etc/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar \
 
+#Audio
+PRODUCT_COPY_FILES += \
+    device/sony/c1905/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/sony/c1905/rootdir/system/etc/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar
+
+#Thermal monitor
 PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/system/etc/thermald.conf:system/etc/thermald.conf \
 
+#Key layouts
 PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/system/usr/keychars/sensor00fn11.kcm:system/usr/keychars/sensor00fn11.kcm \
     device/sony/c1905/rootdir/system/usr/keychars/fih_gpio-keys.kcm:system/usr/keychars/fih_gpio-keys.kcm \
@@ -83,22 +105,24 @@ PRODUCT_COPY_FILES += \
     device/sony/c1905/rootdir/system/usr/keylayout/sensor00fn11.kl:system/usr/keylayout/sensor00fn11.kl \
     device/sony/c1905/rootdir/system/usr/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl
 
+#Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/rootdir/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/prima_fw/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/prima_fw/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/prima_fw/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+#Post script for recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
     $(LOCAL_PATH)/recovery/remap.sh:recovery/root/sbin/remap.sh
 
+#Two stage boot device specific file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/bootrec-device:recovery/bootrec-device
 
+#Offline charger
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
@@ -106,6 +130,7 @@ PRODUCT_PACKAGES += \
     bttest \
     libtinyxml
 
+#NFC
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
@@ -121,6 +146,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
+#Audio
 PRODUCT_PACKAGES += \
     alsa.msm8960 \
     audio_policy.msm8960 \
@@ -131,6 +157,7 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
+#Display
 PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     gralloc.msm8960 \
@@ -138,13 +165,16 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     memtrack.msm8960
 
+#Recovery
 PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
+#Miscellaneous
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
+#File management 
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
@@ -172,9 +202,11 @@ PRODUCT_PACKAGES += \
     libgps.utils \
     gps.msm8960
 
+#USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
 
+#RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.transmitpower=true \
     persist.radio.apm_sim_not_pwdn=1 \
@@ -185,6 +217,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=0 \
     ro.use_data_netmgrd=true
 
+#Miscellaneous properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
     ro.opengles.version=196608 \
@@ -202,6 +235,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.virtual=0 \
     ro.qualcomm.bt.hci_transport=smd
 
+# This device is HDPI
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
