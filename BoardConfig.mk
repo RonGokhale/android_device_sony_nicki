@@ -22,8 +22,6 @@
 # inherit from qcom-common
 -include device/sony/qcom-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
-
 BOARD_VENDOR := sony
 
 USE_CAMERA_STUB := false

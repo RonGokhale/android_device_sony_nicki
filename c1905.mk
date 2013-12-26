@@ -130,12 +130,6 @@ PRODUCT_PACKAGES += \
     bttest \
     libtinyxml
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers
-
 #NFC
 PRODUCT_PACKAGES += \
     libnfc \
