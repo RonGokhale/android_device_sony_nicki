@@ -22,15 +22,12 @@
 # inherit from qcom-common
 -include device/sony/qcom-common/BoardConfigCommon.mk
 
-BOARD_VENDOR := sony
-
 USE_CAMERA_STUB := false
 
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_CPU_VARIANT := krait
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 BOARD_VENDOR_PLATFORM := c1905
-TARGET_CPU_SMP := true
 TARGET_BOOTLOADER_BOARD_NAME := qcom
 
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -73,13 +70,6 @@ TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
-
-TARGET_USES_ION := true
-TARGET_USES_C2D_COMPOSITION := true
-USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/sony/c1905/egl.cfg
-
-ENABLE_WEBGL := true
 
 BOARD_USES_ALSA_AUDIO := true
 

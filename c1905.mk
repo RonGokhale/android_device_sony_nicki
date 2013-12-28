@@ -119,6 +119,7 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
 else
     NFCEE_ACCESS_PATH := device/sony/c1905/rootdir/system/etc/nfcee_access_debug.xml
 endif
+
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
@@ -149,21 +150,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
-
-# Omx
-PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
-    libc2dcolorconvert \
-    libdashplayer \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libstagefrighthw
 
 # GPS
 PRODUCT_PACKAGES += \
