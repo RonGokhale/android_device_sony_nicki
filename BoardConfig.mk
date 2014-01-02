@@ -22,14 +22,16 @@
 # inherit from qcom-common
 -include device/sony/qcom-common/BoardConfigCommon.mk
 
-USE_CAMERA_STUB := false
-
+# Platform
 TARGET_BOARD_PLATFORM := msm8960
-TARGET_CPU_VARIANT := krait
-TARGET_ARCH_VARIANT_CPU := cortex-a9
 BOARD_VENDOR_PLATFORM := c1905
 TARGET_BOOTLOADER_BOARD_NAME := qcom
 
+# Architecture
+TARGET_CPU_VARIANT := krait
+TARGET_ARCH_VARIANT_CPU := cortex-a9
+
+# Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
 TARGET_USE_KRAIT_PLD_SET      := true
 TARGET_KRAIT_BIONIC_PLDOFFS   := 10
@@ -37,12 +39,15 @@ TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH  := 64
 TARGET_KRAIT_BIONIC_PLDSIZE   := 64
 
+# Assert
 TARGET_OTA_ASSERT_DEVICE := c1904,c1905,nicki
 
+# Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 
+# Kernel information
 BOARD_KERNEL_CMDLINE := panic=3 console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 androidboot.selinux=permissive msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -55,12 +60,19 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2235547136
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Partition information
 BOARD_VOLD_MAX_PARTITIONS := 27
+
+# Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
+# Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/nicki
 TARGET_KERNEL_CONFIG := cyanogenmod_nicki_defconfig
 
+TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
+
+# QCOM/CAF hardware
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_QCOM_AUDIO_VARIANT := caf
@@ -69,15 +81,18 @@ TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
-
+# Audio
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 
+# Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
 
+# Needed for blobs
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
+# GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 TARGET_NO_RPC := true
 
@@ -94,13 +109,16 @@ WIFI_DRIVER_MODULE_NAME          := "wlan"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/c1905/bluetooth
 
 TARGET_RECOVERY_FSTAB = device/sony/c1905/rootdir/root/fstab.qcom
+RECOVERY_FSTAB_VERSION := 2
 
+# Custom boot
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/c1905/custombootimg.mk
