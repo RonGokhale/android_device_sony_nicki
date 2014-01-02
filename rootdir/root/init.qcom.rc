@@ -242,6 +242,9 @@ on boot
 
     start akmd
 
+    # Vibrator
+    chown system system /sys/class/timed_output/vibrator/level
+
     #BT DUN port-bridge
     chmod 0660 /dev/smd7
     chown bluetooth bluetooth /dev/smd7

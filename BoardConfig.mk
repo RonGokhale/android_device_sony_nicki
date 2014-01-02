@@ -72,6 +72,8 @@ TARGET_KERNEL_CONFIG := cyanogenmod_nicki_defconfig
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
 
+BOARD_HARDWARE_CLASS := device/sony/c1905/cmhw
+
 # QCOM/CAF hardware
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_USES_QCOM_HARDWARE := true
