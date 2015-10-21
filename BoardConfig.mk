@@ -35,6 +35,7 @@ TARGET_NO_RADIOIMAGE := true
 MALLOC_IMPL := dlmalloc
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
+PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/nicki/kernel-headers
 
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
