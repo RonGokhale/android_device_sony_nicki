@@ -1,4 +1,4 @@
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sony/nicki/rootdir/system/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/sony/nicki/nicki.mk)
@@ -26,11 +26,13 @@ TARGET_SCREEN_WIDTH := 480
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := nicki
-PRODUCT_NAME := cm_nicki
+PRODUCT_NAME := full_nicki
 PRODUCT_BRAND := Sony
-PRODUCT_MODEL := nicki
+PRODUCT_MODEL := C1905
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_CHARACTERISTICS := phone
 
-# Release name
-PRODUCT_RELEASE_NAME := Xperiam
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=C1905 \
+    BUILD_FINGERPRINT="Sony/C1905/C1905:4.3/15.4.A.1.9/eng.user.20140509.125022:user/release-keys" \
+    PRIVATE_BUILD_DESC="C1905-user 4.3 2.22.J.1.18 eng.user.20140509.125022 test-keys"
