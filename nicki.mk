@@ -187,7 +187,8 @@ PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
 PRODUCT_PACKAGES += \
-    setup_fs
+    setup_fs \
+    libemoji
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
