@@ -190,6 +190,9 @@ PRODUCT_PACKAGES += \
     setup_fs \
     libemoji
 
+PRODUCT_PACKAGES += \
+    libsony
+
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
