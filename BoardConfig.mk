@@ -40,9 +40,6 @@ PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/nicki/kernel-headers
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
 
-# Cflags
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
 # Kernel
 BOARD_KERNEL_CMDLINE := panic=3 console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
