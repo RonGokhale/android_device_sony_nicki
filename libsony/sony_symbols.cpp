@@ -35,3 +35,12 @@ extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl5Ev() { }
 extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl6Ev() { }
 extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl7Ev() { }
 extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl8Ev() { }
+
+const char *_ZN7android16CameraParameters12KEY_SONY_ISOE = "sony-iso";
+const char *_ZN7android17QCameraParameters22KEY_SONY_METERING_MODEE = "sony-metering-mode";
+const char *_ZN7android16CameraParameters11KEY_SONY_VSE = "sony-vs";
+const char *_ZN7android17QCameraParameters16KEY_SONY_AE_MODEE = "sony-ae-mode";
+const char *_ZN7android16CameraParameters11KEY_SONY_ISE = "sony-is";
+const char *_ZN7android16CameraParameters20KEY_GPS_LATITUDE_REFE = "gps-latitude-ref";
+const char *_ZN7android16CameraParameters21KEY_GPS_LONGITUDE_REFE = "gps-longitude-ref";
+const char *_ZN7android16CameraParameters20KEY_GPS_ALTITUDE_REFE = "gps-altitude-ref";
