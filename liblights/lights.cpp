@@ -23,7 +23,7 @@
 */
 
 //#define LOG_NDEBUG 0
-#define LOG_TAG "lights.cm"
+#define LOG_TAG "lights.qcom"
 #include <cutils/log.h>
 
 #include <fcntl.h>
@@ -171,20 +171,6 @@ static int rgb_to_brightness (struct light_state_t const* state) {
             + (150*((color>>8)&0x00ff)) + (29*(color&0x00ff))) >> 8;
 }
 
-#ifdef ENABLE_GAMMA_CORRECTION
-static int brightness_apply_gamma (int brightness) {
-    double floatbrt = (double) brightness;
-    floatbrt /= 255.0;
-    ALOGV("%s: brightness = %d, floatbrt = %f", __FUNCTION__, brightness, floatbrt);
-    floatbrt = pow(floatbrt, 2.2);
-    ALOGV("%s: gamma corrected floatbrt = %f", __FUNCTION__, floatbrt);
-    floatbrt *= 255.0;
-    brightness = (int) floatbrt;
-    ALOGV("%s: gamma corrected brightness = %d", __FUNCTION__, brightness);
-    return brightness;
-}
-#endif
-
 static int get_max_brightness() {
     char value[6];
     int fd, len, max_brightness;
@@ -216,9 +202,6 @@ static int lights_set_light_backlight (struct light_device_t *dev, struct light_
     int max_brightness = get_max_brightness();
 
     if (brightness > 0) {
-#ifdef ENABLE_GAMMA_CORRECTION
-        brightness = brightness_apply_gamma(brightness);
-#endif
         brightness = max_brightness * brightness / 255;
         if (brightness < LCD_BRIGHTNESS_MIN)
             brightness = LCD_BRIGHTNESS_MIN;
@@ -229,10 +212,6 @@ static int lights_set_light_backlight (struct light_device_t *dev, struct light_
     pthread_mutex_lock(&g_lock);
     err |= write_int (LCD_BACKLIGHT_FILE, brightness);
     err |= write_int (LCD_BACKLIGHT2_FILE, brightness);
-#ifdef DEVICE_HAYABUSA
-    err |= write_int (LOGO_BACKLIGHT_FILE, brightness);
-    err |= write_int (LOGO_BACKLIGHT2_FILE, brightness);
-#endif
     pthread_mutex_unlock(&g_lock);
 
     return err;

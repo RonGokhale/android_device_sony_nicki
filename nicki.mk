@@ -140,7 +140,7 @@ PRODUCT_PACKAGES += \
 
 # Lights wrapper
 PRODUCT_PACKAGES += \
-    lights.msm8960
+    lights.qcom
 
 # Omx
 PRODUCT_PACKAGES += \
