@@ -294,6 +294,7 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi
     oneshot
 
-#service bbset /system/bin/sh /system/etc/init.qcom.baseband.sh
-#     class late_start
-#     oneshot
+service bbset /system/bin/sh /system/etc/init.qcom.baseband.sh
+     class late_start
+     oneshot
+     seclabel u:r:qti_init_shell:s0
