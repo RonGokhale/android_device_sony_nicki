@@ -253,6 +253,9 @@
     <!-- Whether UI for multi user should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
 
+     <!-- Enable doze powersaving -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+    
     <string-array name="config_locationProviderPackageNames" translatable="false">
         <!-- The Google provider -->
         <item>com.google.android.gms</item>
@@ -265,5 +268,6 @@
         <item>airplane</item>
         <item>silent</item>
     </string-array>
+   
 
 </resources>
