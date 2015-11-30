@@ -1,7 +1,7 @@
 /dev/video([0-9])+                              u:object_r:camera_device:s0
 /dev/gemini.*                                   u:object_r:camera_device:s0
 
-/dev/block/bootdevice/by-name/modem             u:object_r:modem_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/modem        u:object_r:modem_device:s0
 
 /sys/class/timed_output/vibrator/level          u:object_r:vibeamp_sysfs:s0
 /sys/devices/platform/mdp.525057/kcal           u:object_r:kcal_sysfs:s0
@@ -12,3 +12,7 @@
 
 /system/bin/sensord                             u:object_r:sensors_exec:s0
 /system/bin/led_deamon                          u:object_r:led_deamon_exec:s0
+/system/bin/updatemiscta                        u:object_r:updatemiscta_exec:s0
+/system/bin/ta_qmi_service                      u:object_r:ta_qmi_service_exec:s0
+/system/bin/taimport                            u:object_r:taimport_exec:s0
+/sbin/tad_static                                u:object_r:tad_static_exec:s0
