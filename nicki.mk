@@ -170,12 +170,6 @@ PRODUCT_PACKAGES += \
     power.qcom
 
 PRODUCT_PACKAGES += \
-    qcom.fmradio \
-    libqcomfm_jni \
-    FM2 \
-    FMRecord
-
-PRODUCT_PACKAGES += \
     gps.msm8960 \
     gps.conf \
     sap.conf \
@@ -210,7 +204,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=0 \
     ro.telephony.call_ring.multiple=false \
-    persist.radio.oem_socket=false \
     persist.data.netmgrd.qos.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -251,9 +244,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
