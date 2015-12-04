@@ -51,7 +51,7 @@ on fs
     # TA support
     class_start trimarea
     start tad_static
-    exec  /sbin/wait4tad_static
+    exec /sbin/wait4tad_static
     exec /system/bin/taimport
     
     start ta_qmi_service
