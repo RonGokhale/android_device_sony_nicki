@@ -281,7 +281,8 @@ service tad /sbin/tad_static /dev/block/mmcblk0 1,16
     class trimarea
     user root
     group root 	
-    socket tad stream 666 system system   
+    socket tad stream 666 system system
+    class core
 
 service updatemiscta /system/bin/updatemiscta
     class main
