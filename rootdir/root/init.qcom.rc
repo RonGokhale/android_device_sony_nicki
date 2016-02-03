@@ -31,20 +31,12 @@ import init.target.rc
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-    mkdir /storage/sdcard1 0775 system system
-    mkdir /storage/usbdisk 0775 system system
 
      # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
-    symlink /storage/sdcard1         /ext_card
-    symlink /storage/sdcard1         /mnt/ext_card
-    symlink /storage/usbdisk         /usbdisk
-    symlink /storage/usbdisk         /mnt/usbdisk
-
     export LD_PRELOAD "libsony.so"
-
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
