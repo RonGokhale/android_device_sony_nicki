@@ -187,7 +187,6 @@ PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
 PRODUCT_PACKAGES += \
-    setup_fs \
     libemoji
 
 PRODUCT_PACKAGES += \

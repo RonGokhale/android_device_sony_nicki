@@ -43,7 +43,6 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on boot
-    exec /system/bin/btnvtool -O
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -206,6 +205,10 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+on property:vold.decrypt=trigger_restart_framework
+    start config_bt_addr
+    start wcnss-service
+
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
@@ -223,6 +226,12 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group system
+
+service config_bt_addr /system/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
@@ -420,13 +429,6 @@ service ril-daemon2 /system/bin/rild -c 2
     user root
     disabled
     group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
-
-# create filesystem if necessary
-service setup_fs /system/bin/setup_fs /dev/block/platform/msm_sdcc.1/by-name/userdata
-    class core
-    user root
-    group root
-    oneshot
 
 service charger /sbin/healthd -c
     class charger
