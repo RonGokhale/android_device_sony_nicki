@@ -32,9 +32,9 @@ TARGET_BOOTLOADER_BOARD_NAME := qcom
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Use dlmalloc instead of jemalloc for mallocs
 MALLOC_IMPL := dlmalloc
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
 PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/nicki/kernel-headers
 
 # OTA Assert
@@ -56,13 +56,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2235547136
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Vold
-BOARD_VOLD_MAX_PARTITIONS := 27
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
-# Font expansion
-EXTENDED_FONT_FOOTPRINT := true
-
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
@@ -82,12 +75,6 @@ QCOM_CSDCLIENT_ENABLED := false
 # Lights HAL
 TARGET_PROVIDES_LIBLIGHT := true
 
-# QC AV Enhancements
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
-# QC Time
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
@@ -103,7 +90,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
-BOARD_HAS_QCOM_WLAN_SDK          := true
 BOARD_WLAN_DEVICE                := qcwcn
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -117,10 +103,10 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
-BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 
+# Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
