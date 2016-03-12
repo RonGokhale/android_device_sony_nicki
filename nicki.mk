@@ -260,3 +260,5 @@ PRODUCT_PACKAGES += \
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_CHARACTERISTICS := phone
+
+$(call inherit-product-if-exists, $(SNPATH)/device-extra.mk)

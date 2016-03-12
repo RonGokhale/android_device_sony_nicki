@@ -14,6 +14,7 @@
 
 # Inherit from Sony common
 include device/sony/common/BoardConfigCommon.mk
+-include $(SNPATH)/BoardConfigExtra.mk
 
 USE_CAMERA_STUB := false
 
