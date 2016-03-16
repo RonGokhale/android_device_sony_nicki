@@ -255,7 +255,8 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_PACKAGES += \
     libtime_genoff \
-    com.google.widevine.software.drm
+    com.google.widevine.software.drm \
+    TimeService
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

@@ -1,3 +1,4 @@
+-app/TimeService/TimeService.apk
 bin/btnvtool
 bin/fm_qsoc_patches
 bin/hci_qcomm_init
@@ -160,6 +161,7 @@ vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libRSDriver_adreno.so
 -vendor/lib/libtime_genoff.so
+vendor/lib/libTimeService.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libulp2.so
 vendor/lib/libwvdrm_L3.so
