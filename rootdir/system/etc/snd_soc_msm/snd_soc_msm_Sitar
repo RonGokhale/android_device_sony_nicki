@@ -3489,7 +3489,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC2
-		'DEC1 Volume':1:67
+		'DEC1 Volume':1:70
 		'ADC2 Volume':1:100
 	EndSequence
 
@@ -3558,6 +3558,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:71
 		'ADC1 Volume':1:100
 	EndSequence
 
@@ -3565,6 +3566,8 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID	4:2
@@ -3756,12 +3759,16 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:71
+		'ADC1 Volume':1:100
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID  36:2
@@ -3777,7 +3784,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
-		'DEC1 Volume':1:67
+		'DEC1 Volume':1:71
 		'ADC1 Volume':1:100
 	EndSequence
 
@@ -3915,9 +3922,9 @@ SectionDevice
 		'SLIM TX5 MUX':0:DEC2
 		'DEC2 MUX':0:ADC3
 		'SLIM_0_TX Channels':0:Two
-		'DEC1 Volume':1:65
+		'DEC1 Volume':1:67
 		'ADC1 Volume':1:100
-		'DEC2 Volume':1:65
+		'DEC2 Volume':1:67
 		'ADC3 Volume':1:100
 	EndSequence
 
@@ -3934,7 +3941,7 @@ SectionDevice
 		'ADC3 Volume':1:0
 	EndSequence
 
-	ACDBID	6:2
+	ACDBID	34:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3996,7 +4003,7 @@ SectionDevice
 		'DEC2 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	13:2
+	ACDBID	35:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
