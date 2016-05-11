@@ -3941,7 +3941,7 @@ SectionDevice
 		'ADC3 Volume':1:0
 	EndSequence
 
-	ACDBID	34:2
+	ACDBID	6:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3973,7 +3973,7 @@ SectionDevice
 		'ADC3 Volume':1:0
 	EndSequence
 
-	ACDBID	6:2
+	ACDBID	34:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -4003,7 +4003,7 @@ SectionDevice
 		'DEC2 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	35:2
+	ACDBID	13:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -4033,7 +4033,7 @@ SectionDevice
 		'DEC2 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	13:2
+	ACDBID	35:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
