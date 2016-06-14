@@ -119,12 +119,10 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 
 # Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
