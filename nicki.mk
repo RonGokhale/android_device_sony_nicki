@@ -193,29 +193,45 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsony
 
-# WiFi
+# Wlan
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
     wifi.interface=wlan0
 
-# RIL
+# QCRIL
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.add_power_save=1 \
     persist.radio.apm_sim_not_pwdn=1 \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
-    ril.subscription.types=NV,RUIM \
-    telephony.lteOnCdmaDevice=0 \
-    ro.telephony.call_ring.multiple=false \
+    ril.subscription.types=NV,RUIM
+
+# Use custom RIL class
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyRIL
 
-# Display
+# Ringer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.call_ring.multiple=0
+
+# System props for telephony System prop to turn on CdmaLTEPhone always
+PRODUCT_PROPERTY_OVERRIDES += \
+    telephony.lteOnCdmaDevice=0
+
+# QC Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
     persist.hwc.mdpcomp.enable=true \
     debug.composition.type=dyn
 
-# Audio/Video
+# Property to enable user to access Google WFD settings.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
+
+# Property to choose between virtual/external wfd display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.wfd.virtual=0
+
+# Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.audio.init=complete \
     ro.qc.sdk.audio.ssr=false \
@@ -249,13 +265,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
-# IO Scheduler
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
-
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
+
+# System prop for NFC DT
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
