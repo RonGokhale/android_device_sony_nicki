@@ -16,5 +16,3 @@
 
 add_lunch_combo aosp_nicki-eng
 add_lunch_combo aosp_nicki-userdebug
-add_lunch_combo full_nicki-eng
-add_lunch_combo full_nicki-userdebug
