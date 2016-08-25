@@ -6,10 +6,11 @@ $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 
 DEVICE_ROOTDIR := device/sony/nicki/rootdir/root
 PREBUILT_RAMDISK := device/sony/nicki/recovery/ramdisk-recovery.cpio
+PREBUILT_TOYBOX := device/sony/nicki/recovery/toybox
 INITSONY := $(PRODUCT_OUT)/utilities/init_sony
 
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
-$(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(PREBUILT_RAMDISK) $(INSTALLED_RAMDISK_TARGET) $(INITSONY) $(PRODUCT_OUT)/utilities/toybox $(PRODUCT_OUT)/utilities/keycheck $(MKBOOTIMG) $(MINIGZIP) $(INTERNAL_BOOTIMAGE_FILES)
+$(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(PREBUILT_RAMDISK) $(INSTALLED_RAMDISK_TARGET) $(INITSONY) $(PREBUILT_TOYBOX) $(PRODUCT_OUT)/utilities/keycheck $(MKBOOTIMG) $(MINIGZIP) $(INTERNAL_BOOTIMAGE_FILES)
 	$(call pretty,"Boot image: $@")
 
 	$(hide) rm -fr $(PRODUCT_OUT)/combinedroot
@@ -19,7 +20,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(P
 	$(hide) cp $(uncompressed_ramdisk) $(PRODUCT_OUT)/combinedroot/sbin/
 	$(hide) cp $(PREBUILT_RAMDISK) $(PRODUCT_OUT)/combinedroot/sbin/
 	$(hide) cp $(PRODUCT_OUT)/utilities/keycheck $(PRODUCT_OUT)/combinedroot/sbin/
-	$(hide) cp $(PRODUCT_OUT)/utilities/toybox $(PRODUCT_OUT)/combinedroot/sbin/toybox_init
+	$(hide) cp $(PREBUILT_TOYBOX) $(PRODUCT_OUT)/combinedroot/sbin/toybox_init
 
 	$(hide) cp $(INITSONY) $(PRODUCT_OUT)/combinedroot/sbin/init_sony
 	$(hide) chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/init_sony
