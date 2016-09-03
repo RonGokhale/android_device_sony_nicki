@@ -1,4 +1,4 @@
-type sensord, domain;
+type sensord, domain, domain_deprecated;
 type sensord_exec, exec_type, file_type;
 init_daemon_domain(sensord)
 
