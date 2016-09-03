@@ -222,7 +222,6 @@ on post-fs-data
    mkdir /tombstones/mdm2 0771 system system
 
     # NFC porting
-    setprop ro.nfc.port "I2C"
     chmod 0600 /dev/pn544
     chown nfc nfc /dev/pn544
 

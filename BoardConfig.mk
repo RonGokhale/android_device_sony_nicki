@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from Sony common
-include device/sony/common/BoardConfigCommon.mk
 -include $(SNPATH)/BoardConfigExtra.mk
-
-USE_CAMERA_STUB := false
 
 # Architecture
 TARGET_ARCH := arm
@@ -26,6 +22,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
 
 # Platform
+BOARD_VENDOR := sony
 TARGET_BOARD_PLATFORM := msm8960
 BOARD_VENDOR_PLATFORM := nicki
 TARGET_BOOTLOADER_BOARD_NAME := qcom
@@ -45,6 +42,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE := kernel/sony/msm8x27
 TARGET_KERNEL_CONFIG := cyanogenmod_nicki_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -55,8 +53,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 2235547136
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# RIL
-BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
+# Disable dex-preopt of prebuilt
+DONT_DEXPREOPT_PREBUILTS := true
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -81,12 +79,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-BOARD_USES_LEGACY_ALSA_AUDIO := true
-BOARD_USES_FLUENCE_INCALL := true
-BOARD_USES_SEPERATED_AUDIO_INPUT := true
-BOARD_USES_SEPERATED_VOICE_SPEAKER_MIC := true
-QCOM_CSDCLIENT_ENABLED := false
-QCOM_USBAUDIO_ENABLED := true
 AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
 
 # Lights HAL
@@ -114,9 +106,12 @@ WIFI_DRIVER_MODULE_NAME          := "wlan"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 
+# Custom bootimage
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 
 # Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
