@@ -116,6 +116,9 @@ TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
 
 # Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
+ifneq ($(SNPATH),)
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+endif
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
