@@ -31,6 +31,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/nicki/kernel-headers
+TARGET_SPECIFIC_HEADER_PATH := device/sony/nicki/include
 
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
