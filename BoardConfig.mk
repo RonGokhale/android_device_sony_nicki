@@ -87,6 +87,10 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_NEEDS_METADATA_CAMERA_SOURCE := true
+
+# Enable features in video HAL that can compile only on this platform
+TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
