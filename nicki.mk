@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
+# NFC FW
+PRODUCT_PACKAGES += \
+    libpn544_fw
+
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access.xml
 else

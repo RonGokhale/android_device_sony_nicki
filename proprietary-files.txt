@@ -130,7 +130,6 @@ lib/libril.so
 lib/librmp.so
 lib/libSHIMDivxDrm.so
 lib/libta.so
-vendor/firmware/libpn544_fw.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
