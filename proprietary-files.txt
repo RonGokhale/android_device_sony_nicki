@@ -64,7 +64,6 @@ lib/libchromatix_s5k4e1_preview_1.so
 lib/libchromatix_s5k4e1_preview.so
 lib/libcredential-manager-service.so
 lib/libDivxDrm.so
-lib/lib_dlb_msd.so
 lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
