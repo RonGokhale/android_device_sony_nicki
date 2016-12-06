@@ -195,6 +195,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsony
 
+PRODUCT_PACKAGES += \
+    Stk
+
 # Wlan
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
