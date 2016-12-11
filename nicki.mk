@@ -196,6 +196,7 @@ PRODUCT_PACKAGES += \
     libsony
 
 PRODUCT_PACKAGES += \
+    WallpaperPicker \
     Stk
 
 # Wlan
